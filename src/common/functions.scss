@@ -1,0 +1,5 @@
+
+/*计算像素*/
+@function c( $px ){
+    @return $px / ($designWidth / 20) + rem; 
+}

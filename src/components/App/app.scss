@@ -1,0 +1,13 @@
+@import '../../common/style';
+
+.btn-wrap {
+  width: 100%;
+
+  .btn-gray {
+    display: inline-block;
+    width: c(200);
+    height: c(96);
+    background-color: #0099ff;
+  }
+}
+
