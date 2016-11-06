@@ -14,7 +14,7 @@ utils.envSet()
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.ts'
   },
   output: {
     path: config.build.assetsRoot,
@@ -65,6 +65,12 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.ts$/,
+        loader: 'ts',
+        include: projectRoot,
+        exclude: /node_modules/
+      },
+      {
         test: /\.json$/,
         loader: 'json'
       },
@@ -96,5 +102,6 @@ module.exports = {
         browsers: ['last 2 versions']
       })
     ]
-  }
+  },
+  esModule: true
 }
