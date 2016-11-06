@@ -1,11 +1,24 @@
-import * as Vue from 'vue'
-import { VueComponent } from 'vue-typescript'
+import { ComponentOptions } from 'vue'
+import { mapState } from 'vuex'
+import {
+    WECHAT_SHARE_CONFIG
+} from 'constant'
 
-@VueComponent({
+import './app.scss'
+
+const state = Object.assign({}, mapState(["count"]), {})
+
+const App: ComponentOptions<any> = {
     template: require('./app.html'),
-    style: require('./app.scss')
-})
-export class App extends Vue {
+
+    computed: state,
+
+    created() {
+        console.log(this.$store.state.count);
+        this.$store.dispatch(WECHAT_SHARE_CONFIG)
+    },
+
+
 }
 
-console.log(App)
+export default App

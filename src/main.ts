@@ -1,7 +1,9 @@
 import * as Vue from 'vue'
 import * as VueRouter from 'vue-router';
 
-import { App } from './views/App/app'
+import store from './store/index.ts'
+
+import App from './views/App'
 
 Vue.use(VueRouter)
 
@@ -14,7 +16,16 @@ const routes: VueRouter.RouteConfig[] = [
 ]
 
 const router = new VueRouter({
+    mode: 'history',
     routes
 });
 
-const app = new Vue({ router }).$mount('#app')
+const app = new Vue({
+    router,
+    store,
+    template: `
+        <router-view class="view"></router-view>
+    `
+}).$mount('#app')
+
+
